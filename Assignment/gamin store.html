@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyborg Gaming</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #111;
+}
+
+.logo {
+  font-size: 24px;
+  color: #ff4dbc;
+  font-weight: bold;
+}
+
+header input {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+
+nav a {
+  color: #bbb;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a.active, nav a:hover {
+  color: #ff4dbc;
+}
+
+.hero {
+  background: linear-gradient(135deg, #312b63, #441f80);
+  padding: 40px;
+  text-align: left;
+  border-radius: 10px;
+  margin: 30px auto;
+  width: 90%;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-top: 10px;
+}
+
+.hero h1 span {
+  color: #ff4dbc;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff4dbc;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.popular, .library {
+  width: 90%;
+  margin: 40px auto;
+}
+
+.popular h2, .library h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.popular h2 span, .library h2 span {
+  color: #fff;
+  font-weight: bold;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card h4 {
+  margin: 10px 0 5px;
+}
+
+.rating {
+  font-size: 12px;
+  color: #ffcf00;
+}
+
+.discover-btn, .view-btn {
+  margin: 30px auto;
+  display: block;
+  background-color: #ff4dbc;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.library-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.library-item {
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.library-item .title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.library-item .info {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.library-item button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button.disabled {
+  background-color: #555;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+button.download {
+  background-color: #ff4dbc;
+  color: #fff;
+}
+
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 40px;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">CYBORG</div>
+    <input type="text" placeholder="Type Something">
+    <nav>
+      <a class="active" href="#">Home</a>
+      <a href="#">Browse</a>
+      <a href="#">Details</a>
+      <a href="#">Streams</a>
+      <a href="#" class="profile-icon">👤</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <p>Welcome To Cyborg</p>
+        <h1><span>Browse</span> Our Popular Games Here</h1>
+        <button>Browse Now</button>
+      </div>
+    </section>
+
+    <!-- Most Popular -->
+    <section class="popular">
+      <h2><span>Most Popular</span> Right Now</h2>
+      <div class="card-grid">
+        <!-- Card items -->
+        <div class="card">
+          <img src="https://www.exitlag.com/blog/wp-content/uploads/2024/10/fortnite-for-nintendo-switch.webp">
+          <h4>Fortnite</h4>
+          <p>Sandbox</p>
+          <div class="rating">⭐ 4.8 • 2.3M</div>
+        </div>
+        <div class="card">
+          <img src="https://media.assettype.com/tnm%2Fimport%2Fsites%2Fdefault%2Ffiles%2FPUBG_12112020_1200x800.jpg">
+          <h4>PUBG</h4>
+          <p>Battle S</p>
+          <div class="rating">⭐ 4.8 • 2.3M</div>
+        </div>
+        <div class="card">
+          <img src="https://cdn.akamai.steamstatic.com/apps/dota2/images/dota2_social.jpg">
+          <h4>Dota2</h4>
+          <p>Steam-X</p>
+          <div class="rating">⭐ 4.8 • 2.3M</div>
+        </div>
+        <div class="card">
+          <img src="https://esportsresults.com/wp-content/uploads/2023/01/csgo-1.jpg">
+          <h4>CS-GO</h4>
+          <p>Legendary</p>
+          <div class="rating">⭐ 4.8 • 2.3M</div>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png">
+          <h4>Mini Craft</h4>
+          <p>Legendary</p>
+          <div class="rating">⭐ 4.8 • 2.3M</div>
+        </div>
+        <div class="card">
+          <img src="https://i.ytimg.com/vi/zniN1B9WMw0/maxresdefault.jpg">
+          <h4>Eagles Fly</h4>
+          <p>Matrix Games</p>
+          <div class="rating">⭐ 4.8 • 2.3M</div>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPGrDnB1J--o7RLXLAfqPLQepR7s1EgIKUZw&s">
+          <h4>Warface</h4>
+          <p>Max 3D</p>
+          <div class="rating">⭐ 4.8 • 2.3M</div>
+        </div>
+        <div class="card">
+          <img src="https://m.media-amazon.com/images/I/717M9Vjr1xL.jpg">
+          <h4>Warcraft</h4>
+          <p>Legend</p>
+          <div class="rating">⭐ 4.8 • 2.3M</div>
+        </div>
+      </div>
+      <button class="discover-btn">Discover Popular</button>
+    </section>
+
+    <!-- Gaming Library -->
+    <section class="library">
+      <h2><span>Your Gaming</span> Library</h2>
+      <div class="library-list">
+        <div class="library-item">
+          <div class="title">Dota 2</div>
+          <div class="info">Date Added: 24/06/2036</div>
+          <div class="info">Hours Played: 634 H 22 Mins</div>
+          <div class="info">Currently: Downloaded</div>
+          <button class="disabled">Downloaded</button>
+        </div>
+        <div class="library-item">
+          <div class="title">Fortnite</div>
+          <div class="info">Date Added: 24/06/2036</div>
+          <div class="info">Hours Played: 740 H 11 Mins</div>
+          <div class="info">Currently: Download</div>
+          <button class="download">Download</button>
+        </div>
+        <div class="library-item">
+          <div class="title">CS-GO</div>
+          <div class="info">Date Added: 24/06/2036</div>
+          <div class="info">Hours Played: 892 H 14 Mins</div>
+          <div class="info">Currently: Downloaded</div>
+          <button class="disabled">Downloaded</button>
+        </div>
+      </div>
+      <button class="view-btn">View Your Library</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Copyright © 2036 Cyborg Gaming Company. All rights reserved.<br>Design: TemplateMo</p>
+  </footer>
+</body>
+</html>
+    
