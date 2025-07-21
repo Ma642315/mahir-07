@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>book overview</title>
+</head>
+<body>
+    <h1>the wonders of space exploration</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/nasa_logo.svg/800px-nasa_logo.svg.png"alt="book cover-the wonders of space"width="200">
+    <p>
+        <b><i>this book takes you on a journey through the cosmos, exploring the latest advancements in space technology and the quest to understand our universe.</i></b>
+    </p>
+    <h2>table of contents</h2>
+    <ul>
+        <li>chapter 1:introduction to space exploration</li>
+        <ul>
+            <li>1.1 the importance of space exploration</li>
+        </ul>
+        <li>1.2 the challenges of space exploration</li>
+        <li>chapter2:the history of space travel</li>
+        <ul>
+            <li>2.1 early space missions</li>
+            <li>2.2 the space race</li>
+        </ul>
+        <li>chapter 3:current missions and technologies</li>
+        <li>3.1the future of space exploration</li>
+        <ul>
+            <li>3.2 colonization of other planets</li>
+            <li>3.3 the search for extraterrestrial life</li>
+    </ul>
+    <title>time table</title>
+    <style>
+        table{
+            border-collapse:collapse;
+            width:100%;
+            text-align:center;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    th{
+        background-color:#f2f2f2;
+    }
+    .lunch{
+        writing-mode:vertical-rl;
+        text-orientation:mixed;
+    }
+    </style>
+    </head>
+    <body>
+        <h2 style="text-align:center;">time table</h2>
+        <table>
+            <tr>
+                <th>day/period</th>
+                <th>1<br>9:30-10:20am</th>
+                <th>2<br>10:20-11.00am</th>
+                <th>3<br>11:10-12:00pm</th>
+                <th>12:00-12:40pm</th>
+                <th>4<br>12:40-1:30pm</th>
+                <th>5<br>1:30-2:20pm</th>
+                <th>6<br>2:20-3:10pm</th>
+                <th>7<br>3:10-4:00pm</th>
+
+            </tr>
+            <tr>
+                <td>monday</td>
+                <td>eng</td>
+                <td>mat</td>
+                <td>che</td>
+                <td rowspan="7"
+                class="lunch">lunch</td>
+                <td colspan="3">lab</td>
+                <td>phy</td>
+            </tr>
+            <tr>
+                <td>tuesday</td>
+                <td colspan="3">lab</td>
+                <td>eng</td>
+                <td>che</td>
+                <td>mat></td>
+                <td>sports</td>
+            </tr>
+            <tr>
+                <td>wednesday</td>
+                <td>mat</td>
+                <td>phy</td>
+                <td>eng</td>
+                <td colspan="3">library</td></td>
+            </tr>
+            <tr></tr>
+                <td>thursday</td>
+                <td>phy</td>
+                <td>eng</td>
+                <td>che</td>
+                <td colspan="3">lab</td>
+                <td>mat</td> 
+            </tr>
+            <tr>
+                <td>friday</td>
+                <td colspan="3">lab</td>
+                <td>mat</td>
+                <td>che</td>
+                </td>
+                <td colspan="3">seminar</td> 
+                <td>sports</td>
+            </tr>
+            <tr>
+                <td>saturday</td>
+                <td>eng</td>
+                <td>che</td>
+                <td>mat</td>
+                <td colspan="3">seminar</td>
+                <td>sports</td>
+            </tr>
+        </tr>
+        </table>
+        <br>
+        <h1>registration form</h1>
+        
+            <title>registration form</title>
+            <h2>personal details</h2>
+            <form>
+                <label>your name</label>
+                <input type="text" name="name" required>
+                <br>
+                <label>password</label>
+                <input type="password" name="password" required>
+                <br>
+                <label>email id</label>
+                <input type="email" name="email" required>
+                <br>
+                <p><b>gender?</b>
+                </p>
+                <input type="radio" name="gender" value="male" required> Male
+                <input type="radio" name="gender" value="female" required> Female
+                <br>
+                <h2>educational qualification</h2>
+                <p>
+                    <b>degree:</b>
+            </select>
+                <select name="degree" required>
+                    <option value="btech">btech</option>
+                    <option value="bca">bca</option>
+                    <option value="bba">bba</option>
+                    <option value="bsc">bsc</option>
+                    </select>
+                    <br>
+                    <p>
+                    <p>
+                        <b>engineering:</b>
+                    <select name="branch" required>
+                        <option value="cse">cse</option>
+                        <option value="ece">ece</option>
+                        <option value="eee">eee</option>
+                        <option value="civil">civil</option>
+                        </select>   
+                        <p>
+                            hobbies:
+                            <input type="checkbox" name="hobbies" value="playing chess"> Playing Chess
+                            <input type="checkbox" name="hobbies" value="reading books"> Reading Books
+                        </p>
+                        <label>Adress</label>
+                        <textarea name="address" rows="4" cols="50" required></textarea>
+                        <br>
+                        <p><b>attch resume></b></p>
+                        <label>file</label>
+                        <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+                        <br>
+                        <label>submit</label>
+                        <input type="submit" value="Submit">
+            </form>
+</body>
+</html> 
