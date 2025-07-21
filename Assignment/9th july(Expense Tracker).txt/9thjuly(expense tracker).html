@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.balance {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.summary div {
+  width: 45%;
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.money.plus {
+  color: green;
+}
+
+.money.minus {
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+form button {
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  border-left: 5px solid;
+  border-radius: 5px;
+}
+
+.list li.plus {
+  border-color: green;
+}
+
+.list li.minus {
+  border-color: red;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>💰 Expense Tracker</h2>
+
+    <div class="balance">
+      <h3>Your Balance</h3>
+      <h1 id="balance">₹0.00</h1>
+    </div>
+
+    <div class="summary">
+      <div>
+        <h4>Income</h4>
+        <p id="income" class="money plus">₹0.00</p>
+      </div>
+      <div>
+        <h4>Expense</h4>
+        <p id="expense" class="money minus">₹0.00</p>
+      </div>
+    </div>
+
+    <h3>Add Transaction</h3>
+    <form id="form">
+      <input type="text" id="description" placeholder="Description" required />
+      <input type="number" id="amount" placeholder="Amount (+income, -expense)" required />
+      <button type="submit">Add Transaction</button>
+    </form>
+
+    <h3>History</h3>
+    <ul id="transaction-list" class="list"></ul>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById('form');
+const description = document.getElementById('description');
+const amount = document.getElementById('amount');
+const transactionList = document.getElementById('transaction-list');
+const balance = document.getElementById('balance');
+const income = document.getElementById('income');
+const expense = document.getElementById('expense');
+
+let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+function generateID() {
+  return Date.now();
+}
+
+function updateLocalStorage() {
+  localStorage.setItem('transactions', JSON.stringify(transactions));
+}
+
+function addTransaction(e) {
+  e.preventDefault();
+
+  const desc = description.value.trim();
+  const amt = +amount.value;
+
+  if (desc === '' || isNaN(amt)) {
+    alert('Please enter valid description and amount');
+    return;
+  }
+
+  const transaction = {
+    id: generateID(),
+    description: desc,
+    amount: amt
+  };
+
+  transactions.push(transaction);
+  updateLocalStorage();
+  renderTransactions();
+  form.reset();
+}
+
+function deleteTransaction(id) {
+  transactions = transactions.filter(txn => txn.id !== id);
+  updateLocalStorage();
+  renderTransactions();
+}
+
+function renderTransactions() {
+  transactionList.innerHTML = '';
+
+  transactions.forEach(txn => {
+    const li = document.createElement('li');
+    li.classList.add(txn.amount > 0 ? 'plus' : 'minus');
+    li.innerHTML = `
+      ${txn.description} <span>${txn.amount > 0 ? '+' : ''}₹${txn.amount}</span>
+      <button class="delete-btn" onclick="deleteTransaction(${txn.id})">❌</button>
+    `;
+    transactionList.appendChild(li);
+  });
+
+  updateSummary();
+}
+
+function updateSummary() {
+  const amounts = transactions.map(txn => txn.amount);
+  const total = amounts.reduce((acc, val) => acc + val, 0).toFixed(2);
+  const incomeTotal = amounts.filter(v => v > 0).reduce((acc, v) => acc + v, 0).toFixed(2);
+  const expenseTotal = amounts.filter(v => v < 0).reduce((acc, v) => acc + v, 0).toFixed(2);
+
+  balance.textContent = ₹${total};
+  income.textContent = ₹${incomeTotal};
+  expense.textContent = ₹${Math.abs(expenseTotal)};
+}
+
+// Init
+renderTransactions();
+form.addEventListener('submit', addTransaction);
+  </script>
+</body>
+</html>
